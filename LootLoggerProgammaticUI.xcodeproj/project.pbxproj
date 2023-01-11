@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A64DD33E296E356500757044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD33D296E356500757044 /* AppDelegate.swift */; };
+		A64DD340296E356500757044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD33F296E356500757044 /* SceneDelegate.swift */; };
+		A64DD342296E356500757044 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD341296E356500757044 /* ViewController.swift */; };
+		A64DD345296E356500757044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64DD343296E356500757044 /* Main.storyboard */; };
+		A64DD347296E356700757044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64DD346296E356700757044 /* Assets.xcassets */; };
+		A64DD34A296E356700757044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64DD348296E356700757044 /* LaunchScreen.storyboard */; };
+		A64DD355296E356700757044 /* LootLoggerProgammaticUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD354296E356700757044 /* LootLoggerProgammaticUITests.swift */; };
+		A64DD35F296E356700757044 /* LootLoggerProgammaticUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD35E296E356700757044 /* LootLoggerProgammaticUIUITests.swift */; };
+		A64DD361296E356700757044 /* LootLoggerProgammaticUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD360296E356700757044 /* LootLoggerProgammaticUIUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A64DD351296E356700757044 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A64DD332296E356500757044 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A64DD339296E356500757044;
+			remoteInfo = LootLoggerProgammaticUI;
+		};
+		A64DD35B296E356700757044 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A64DD332296E356500757044 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A64DD339296E356500757044;
+			remoteInfo = LootLoggerProgammaticUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A64DD33A296E356500757044 /* LootLoggerProgammaticUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LootLoggerProgammaticUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A64DD33D296E356500757044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A64DD33F296E356500757044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A64DD341296E356500757044 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A64DD344296E356500757044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A64DD346296E356700757044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A64DD349296E356700757044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A64DD34B296E356700757044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A64DD350296E356700757044 /* LootLoggerProgammaticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LootLoggerProgammaticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A64DD354296E356700757044 /* LootLoggerProgammaticUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootLoggerProgammaticUITests.swift; sourceTree = "<group>"; };
+		A64DD35A296E356700757044 /* LootLoggerProgammaticUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LootLoggerProgammaticUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A64DD35E296E356700757044 /* LootLoggerProgammaticUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootLoggerProgammaticUIUITests.swift; sourceTree = "<group>"; };
+		A64DD360296E356700757044 /* LootLoggerProgammaticUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootLoggerProgammaticUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A64DD337296E356500757044 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A64DD34D296E356700757044 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A64DD357296E356700757044 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A64DD331296E356500757044 = {
+			isa = PBXGroup;
+			children = (
+				A64DD33C296E356500757044 /* LootLoggerProgammaticUI */,
+				A64DD353296E356700757044 /* LootLoggerProgammaticUITests */,
+				A64DD35D296E356700757044 /* LootLoggerProgammaticUIUITests */,
+				A64DD33B296E356500757044 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A64DD33B296E356500757044 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A64DD33A296E356500757044 /* LootLoggerProgammaticUI.app */,
+				A64DD350296E356700757044 /* LootLoggerProgammaticUITests.xctest */,
+				A64DD35A296E356700757044 /* LootLoggerProgammaticUIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A64DD33C296E356500757044 /* LootLoggerProgammaticUI */ = {
+			isa = PBXGroup;
+			children = (
+				A64DD33D296E356500757044 /* AppDelegate.swift */,
+				A64DD33F296E356500757044 /* SceneDelegate.swift */,
+				A64DD341296E356500757044 /* ViewController.swift */,
+				A64DD343296E356500757044 /* Main.storyboard */,
+				A64DD346296E356700757044 /* Assets.xcassets */,
+				A64DD348296E356700757044 /* LaunchScreen.storyboard */,
+				A64DD34B296E356700757044 /* Info.plist */,
+			);
+			path = LootLoggerProgammaticUI;
+			sourceTree = "<group>";
+		};
+		A64DD353296E356700757044 /* LootLoggerProgammaticUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A64DD354296E356700757044 /* LootLoggerProgammaticUITests.swift */,
+			);
+			path = LootLoggerProgammaticUITests;
+			sourceTree = "<group>";
+		};
+		A64DD35D296E356700757044 /* LootLoggerProgammaticUIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A64DD35E296E356700757044 /* LootLoggerProgammaticUIUITests.swift */,
+				A64DD360296E356700757044 /* LootLoggerProgammaticUIUITestsLaunchTests.swift */,
+			);
+			path = LootLoggerProgammaticUIUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A64DD339296E356500757044 /* LootLoggerProgammaticUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A64DD364296E356700757044 /* Build configuration list for PBXNativeTarget "LootLoggerProgammaticUI" */;
+			buildPhases = (
+				A64DD336296E356500757044 /* Sources */,
+				A64DD337296E356500757044 /* Frameworks */,
+				A64DD338296E356500757044 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LootLoggerProgammaticUI;
+			productName = LootLoggerProgammaticUI;
+			productReference = A64DD33A296E356500757044 /* LootLoggerProgammaticUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A64DD34F296E356700757044 /* LootLoggerProgammaticUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A64DD367296E356700757044 /* Build configuration list for PBXNativeTarget "LootLoggerProgammaticUITests" */;
+			buildPhases = (
+				A64DD34C296E356700757044 /* Sources */,
+				A64DD34D296E356700757044 /* Frameworks */,
+				A64DD34E296E356700757044 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A64DD352296E356700757044 /* PBXTargetDependency */,
+			);
+			name = LootLoggerProgammaticUITests;
+			productName = LootLoggerProgammaticUITests;
+			productReference = A64DD350296E356700757044 /* LootLoggerProgammaticUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A64DD359296E356700757044 /* LootLoggerProgammaticUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A64DD36A296E356700757044 /* Build configuration list for PBXNativeTarget "LootLoggerProgammaticUIUITests" */;
+			buildPhases = (
+				A64DD356296E356700757044 /* Sources */,
+				A64DD357296E356700757044 /* Frameworks */,
+				A64DD358296E356700757044 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A64DD35C296E356700757044 /* PBXTargetDependency */,
+			);
+			name = LootLoggerProgammaticUIUITests;
+			productName = LootLoggerProgammaticUIUITests;
+			productReference = A64DD35A296E356700757044 /* LootLoggerProgammaticUIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A64DD332296E356500757044 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					A64DD339296E356500757044 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					A64DD34F296E356700757044 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A64DD339296E356500757044;
+					};
+					A64DD359296E356700757044 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A64DD339296E356500757044;
+					};
+				};
+			};
+			buildConfigurationList = A64DD335296E356500757044 /* Build configuration list for PBXProject "LootLoggerProgammaticUI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A64DD331296E356500757044;
+			productRefGroup = A64DD33B296E356500757044 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A64DD339296E356500757044 /* LootLoggerProgammaticUI */,
+				A64DD34F296E356700757044 /* LootLoggerProgammaticUITests */,
+				A64DD359296E356700757044 /* LootLoggerProgammaticUIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A64DD338296E356500757044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A64DD34A296E356700757044 /* LaunchScreen.storyboard in Resources */,
+				A64DD347296E356700757044 /* Assets.xcassets in Resources */,
+				A64DD345296E356500757044 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A64DD34E296E356700757044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A64DD358296E356700757044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A64DD336296E356500757044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A64DD342296E356500757044 /* ViewController.swift in Sources */,
+				A64DD33E296E356500757044 /* AppDelegate.swift in Sources */,
+				A64DD340296E356500757044 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A64DD34C296E356700757044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A64DD355296E356700757044 /* LootLoggerProgammaticUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A64DD356296E356700757044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A64DD35F296E356700757044 /* LootLoggerProgammaticUIUITests.swift in Sources */,
+				A64DD361296E356700757044 /* LootLoggerProgammaticUIUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A64DD352296E356700757044 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A64DD339296E356500757044 /* LootLoggerProgammaticUI */;
+			targetProxy = A64DD351296E356700757044 /* PBXContainerItemProxy */;
+		};
+		A64DD35C296E356700757044 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A64DD339296E356500757044 /* LootLoggerProgammaticUI */;
+			targetProxy = A64DD35B296E356700757044 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A64DD343296E356500757044 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A64DD344296E356500757044 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A64DD348296E356700757044 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A64DD349296E356700757044 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A64DD362296E356700757044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A64DD363296E356700757044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A64DD365296E356700757044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T43QAL25VC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LootLoggerProgammaticUI/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftygeorge.LootLoggerProgammaticUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A64DD366296E356700757044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T43QAL25VC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LootLoggerProgammaticUI/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftygeorge.LootLoggerProgammaticUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A64DD368296E356700757044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T43QAL25VC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftygeorge.LootLoggerProgammaticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LootLoggerProgammaticUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LootLoggerProgammaticUI";
+			};
+			name = Debug;
+		};
+		A64DD369296E356700757044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T43QAL25VC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftygeorge.LootLoggerProgammaticUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LootLoggerProgammaticUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LootLoggerProgammaticUI";
+			};
+			name = Release;
+		};
+		A64DD36B296E356700757044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T43QAL25VC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftygeorge.LootLoggerProgammaticUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LootLoggerProgammaticUI;
+			};
+			name = Debug;
+		};
+		A64DD36C296E356700757044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T43QAL25VC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftygeorge.LootLoggerProgammaticUIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LootLoggerProgammaticUI;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A64DD335296E356500757044 /* Build configuration list for PBXProject "LootLoggerProgammaticUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A64DD362296E356700757044 /* Debug */,
+				A64DD363296E356700757044 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A64DD364296E356700757044 /* Build configuration list for PBXNativeTarget "LootLoggerProgammaticUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A64DD365296E356700757044 /* Debug */,
+				A64DD366296E356700757044 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A64DD367296E356700757044 /* Build configuration list for PBXNativeTarget "LootLoggerProgammaticUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A64DD368296E356700757044 /* Debug */,
+				A64DD369296E356700757044 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A64DD36A296E356700757044 /* Build configuration list for PBXNativeTarget "LootLoggerProgammaticUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A64DD36B296E356700757044 /* Debug */,
+				A64DD36C296E356700757044 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A64DD332296E356500757044 /* Project object */;
+}
