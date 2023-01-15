@@ -17,6 +17,8 @@ class ItemsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,13 +26,11 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: - Find out how to make cell reusable programmatically
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         let item = itemStore.allItems[indexPath.row]
-        var configuration = cell.defaultContentConfiguration()
-        configuration.text = item.name
-        configuration.secondaryText = "$\(item.valueInDollars)"
-        cell.contentConfiguration = configuration
+        cell.nameLabel.text = item.name
+        cell.serialNumberLabel.text = item.serialNumber
+        cell.valueLabel.text = "$\(item.valueInDollars)"
         return cell
     }
     
@@ -46,6 +46,8 @@ class ItemsViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    // MARK: - Methods
     
     @objc func toggleEditMode(_ sender: UIButton) {
         // If the table view controller is currently in editing mode...
@@ -72,13 +74,13 @@ class ItemsViewController: UITableViewController {
 
 }
 
-// MARK: - Methods
+// MARK: - Extension ItemsViewController More Methods
 
 extension ItemsViewController {
     
     fileprivate func configureTableView() {
         tableView = UITableView(frame: view.frame, style: .plain)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        tableView.register(ItemCell.self, forCellReuseIdentifier: "ItemCell")
         configureTableViewHeader()
     }
     
