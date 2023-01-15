@@ -18,6 +18,7 @@
 		A64DD370296E386900757044 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD36F296E386900757044 /* Item.swift */; };
 		A64DD372296E3D0E00757044 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64DD371296E3D0E00757044 /* ItemStore.swift */; };
 		A69B318C297311850079A51D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B318B297311850079A51D /* ItemCell.swift */; };
+		A69B31902973BE040079A51D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B318F2973BE040079A51D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A64DD36F296E386900757044 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A64DD371296E3D0E00757044 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		A69B318B297311850079A51D /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		A69B318F2973BE040079A51D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				A64DD33D296E356500757044 /* AppDelegate.swift */,
 				A64DD33F296E356500757044 /* SceneDelegate.swift */,
 				A64DD36D296E37F100757044 /* ItemsViewController.swift */,
+				A69B318F2973BE040079A51D /* DetailViewController.swift */,
 				A69B318B297311850079A51D /* ItemCell.swift */,
 				A64DD36F296E386900757044 /* Item.swift */,
 				A64DD371296E3D0E00757044 /* ItemStore.swift */,
@@ -269,6 +272,7 @@
 				A64DD36E296E37F100757044 /* ItemsViewController.swift in Sources */,
 				A64DD372296E3D0E00757044 /* ItemStore.swift in Sources */,
 				A64DD340296E356500757044 /* SceneDelegate.swift in Sources */,
+				A69B31902973BE040079A51D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
