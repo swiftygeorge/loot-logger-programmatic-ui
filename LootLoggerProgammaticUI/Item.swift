@@ -43,5 +43,11 @@ class Item: Equatable {
         lhs.dateCreated == rhs.dateCreated
     }
     
+    func acceptChanges(newName: String, newValue: Int, newSerialNumber: String?) {
+        self.name = newName
+        self.valueInDollars = newValue
+        self.serialNumber = newSerialNumber
+    }
+    
     
 }

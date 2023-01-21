@@ -7,9 +7,18 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+protocol DetailViewControllerDelegate {
+    func didFinishEditing(_ detailViewController: DetailViewController)
+}
+
+class DetailViewController: UIViewController, UITextFieldDelegate {
     
-    var item: Item!
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
+    var delegate: DetailViewControllerDelegate?
     
     var nameTextField: UITextField = UITextField()
     var serialNumberTextField: UITextField = UITextField()
@@ -30,6 +39,14 @@ class DetailViewController: UIViewController {
         return df
     }()
     
+    override func viewDidLoad() {
+        view.backgroundColor = .systemBackground
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backgroundTapped(_:))))
+        configureDateLabel()
+        configureStacks()
+        configureTextFields()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         nameTextField.text = item.name
@@ -38,12 +55,23 @@ class DetailViewController: UIViewController {
         dateCreatedLabel.text = dateFormatter.string(from: item.dateCreated)
     }
     
-    override func viewDidLoad() {
-        view.backgroundColor = .systemBackground
-        dateCreatedLabel.text = "Date Created"
-        dateCreatedLabel.textAlignment = .center
-        dateCreatedLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
-        configureStacks()
+    override func viewWillDisappear(_ animated: Bool) {
+        let name = nameTextField.text ?? ""
+        let value = numberFormatter.number(from: valueTextField.text!)?.intValue ?? 0
+        let serialNumber = serialNumberTextField.text
+        item.acceptChanges(newName: name, newValue: value, newSerialNumber: serialNumber)
+        delegate?.didFinishEditing(self)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // TODO: - Find out why the keyboard is not dismissing
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     
@@ -52,6 +80,18 @@ class DetailViewController: UIViewController {
 // MARK: - Extension DetailViewController Methods
 
 extension DetailViewController {
+    
+    fileprivate func configureDateLabel() {
+        dateCreatedLabel.text = "Date Created"
+        dateCreatedLabel.textAlignment = .center
+        dateCreatedLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
+    }
+    
+    fileprivate func configureTextFields() {
+        nameTextField.delegate = self
+        valueTextField.delegate = self
+        serialNumberTextField.delegate = self
+    }
     
     fileprivate func configureStacks() {
         // Labels

@@ -19,13 +19,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        // Create an instance of UINavigationController and make it the window's root view controller
+        // Set navController as the window's root view controller
+        let navController = UINavigationController()
+        window?.rootViewController = navController
         // Create an instance of ItemsViewController
-        let itemsViewController = ItemsViewController()
         // Create an instance of ItemStore
+        // Assign the item store to be item view controller's item store
+        // Make items view controller navController's top controller
+        let itemsViewController = ItemsViewController()
         let itemStore = ItemStore()
         itemsViewController.itemStore = itemStore
-        // Set itemsViewController as the window's root view controller
-        window?.rootViewController = itemsViewController
+        navController.setViewControllers([itemsViewController], animated: true)
         window?.makeKeyAndVisible()
     }
 
