@@ -20,10 +20,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     var delegate: DetailViewControllerDelegate?
     
-    var nameTextField: UITextField = UITextField()
-    var serialNumberTextField: UITextField = UITextField()
-    var valueTextField: UITextField = UITextField()
+    var nameTextField = UITextField()
+    var serialNumberTextField = UITextField()
+    var valueTextField = UITextField()
     var dateCreatedLabel = UILabel()
+    var toolbar = UIToolbar()
+    let mainStackView = UIStackView()
     
     let numberFormatter: NumberFormatter = {
        let nf = NumberFormatter()
@@ -40,11 +42,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }()
     
     override func viewDidLoad() {
-        view.backgroundColor = .systemBackground
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backgroundTapped(_:))))
+        configureMainView()
         configureDateLabel()
         configureStacks()
         configureTextFields()
+        configureToolBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,12 +76,39 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+    @objc func choosePhotoSource(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.modalPresentationStyle = .popover
+        alertController.popoverPresentationController?.barButtonItem = sender
+        // Option to use camera to take a photo
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+            print("Present camera")
+        }
+        // Option to use photo library to select a photo
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
+            print("Present photo library")
+        }
+        // Option to cancel photo selection
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // Add actions to alert controller
+        alertController.addAction(cameraAction)
+        alertController.addAction(photoLibraryAction)
+        alertController.addAction(cancelAction)
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
 }
 
 // MARK: - Extension DetailViewController Methods
 
 extension DetailViewController {
+    
+    fileprivate func configureMainView() {
+        view.backgroundColor = .systemBackground
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backgroundTapped(_:))))
+    }
     
     fileprivate func configureDateLabel() {
         dateCreatedLabel.text = "Date Created"
@@ -106,12 +135,15 @@ extension DetailViewController {
         configureStackView(nameStackView, forTextField: nameTextField, withLabel: nameLabel, andLabelText: "Name")
         configureStackView(serialNumberStackView, forTextField: serialNumberTextField, withLabel: serialNumberLabel, andLabelText: "Serial")
         configureStackView(valueStackView, forTextField: valueTextField, withLabel: valueLabel, andLabelText: "Value")
-        // Add a vertical stack view to hold all the stack views
-        let verticalStackView = UIStackView(arrangedSubviews: [nameStackView, serialNumberStackView, valueStackView, dateCreatedLabel])
-        verticalStackView.axis = .vertical
-        verticalStackView.spacing = 8
-        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(verticalStackView)
+        // Configure main stack view
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 8
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        let views = [nameStackView, serialNumberStackView, valueStackView, dateCreatedLabel]
+        for view in views {
+            mainStackView.addArrangedSubview(view)
+        }
+        view.addSubview(mainStackView)
         
         // MARK: - Constraint subviews
         
@@ -121,10 +153,9 @@ extension DetailViewController {
             serialNumberTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
             valueTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
             // verticalStackView
-            verticalStackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
-            verticalStackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 8),
-            verticalStackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+            mainStackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
+            mainStackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         ])
     }
     
@@ -140,6 +171,17 @@ extension DetailViewController {
         // stackView
         stackView.axis = .horizontal
         stackView.spacing = 8
+    }
+    
+    fileprivate func configureToolBar() {
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        toolbar.items = [UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(choosePhotoSource(_:)))]
+        view.addSubview(toolbar)
+        // Set constraints
+        toolbar.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: -8).isActive = true
+        toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        toolbar.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
     }
     
     
