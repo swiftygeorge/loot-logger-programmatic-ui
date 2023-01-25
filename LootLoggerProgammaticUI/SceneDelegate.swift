@@ -25,11 +25,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navController
         // Create an instance of ItemsViewController
         // Create an instance of ItemStore
-        // Assign the item store to be item view controller's item store
+        // Create an instance of ImageStore
+        // Assign the item and image stores to be item view controller's item store
         // Make items view controller navController's top controller
         let itemsViewController = ItemsViewController()
         let itemStore = ItemStore()
+        let imageStore = ImageStore()
         itemsViewController.itemStore = itemStore
+        itemsViewController.imageStore = imageStore
         navController.setViewControllers([itemsViewController], animated: true)
         window?.makeKeyAndVisible()
     }

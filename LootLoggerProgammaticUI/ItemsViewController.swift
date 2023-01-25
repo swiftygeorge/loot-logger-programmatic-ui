@@ -10,6 +10,7 @@ import UIKit
 class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
    
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
     var addButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -42,6 +43,7 @@ class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
         if editingStyle == .delete {
             let item = itemStore.allItems[indexPath.row]
             itemStore.deleteItem(item)
+            imageStore.deleteImage(forKey: item.itemKey)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -51,6 +53,7 @@ class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
         let detailViewController = DetailViewController()
         detailViewController.delegate = self
         detailViewController.item = item
+        detailViewController.imageStore = imageStore
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     
@@ -70,6 +73,7 @@ class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
     fileprivate func configureTableView() {
         tableView = UITableView(frame: view.frame, style: .plain)
         tableView.register(ItemCell.self, forCellReuseIdentifier: "ItemCell")
+        tableView.allowsMultipleSelection = false
     }
     
     fileprivate func addView(_ view: UIView, toSuperView superView: UIView) {
