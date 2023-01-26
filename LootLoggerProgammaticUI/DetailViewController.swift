@@ -151,6 +151,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         present(alertController, animated: true, completion: nil)
     }
     
+    @objc func deleteImage(_ sender: UIBarButtonItem) {
+        // Remove the image from imageView
+        imageView.image = nil
+        // Delete the image from cache and disk
+        imageStore.deleteImage(forKey: item.itemKey)
+    }
+    
     // MARK: - Methods
     
     fileprivate func imagePicker(for sourceType: UIImagePickerController.SourceType) -> UIImagePickerController {
@@ -272,7 +279,9 @@ extension DetailViewController {
     }
     
     fileprivate func configure(_ toolbar: UIToolbar) {
-        toolbar.items = [UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(choosePhotoSource(_:)))]
+        let cameraButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(choosePhotoSource(_:)))
+        let deleteButton = UIBarButtonItem(title: "Delete Image", style: .plain, target: self, action: #selector(deleteImage(_:)))
+        toolbar.items = [cameraButton, UIBarButtonItem(systemItem: .flexibleSpace), deleteButton]
         toolbar.barTintColor = .secondaryBrandFillColor
         toolbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(toolbar)
