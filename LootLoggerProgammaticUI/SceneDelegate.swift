@@ -13,15 +13,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        // Create a window scene
+        // Set the window's frame
+        // Set the window's scene
+        // Set the app's global tint color
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        window?.tintColor = .brandAccentColor
         // Create an instance of UINavigationController and make it the window's root view controller
         // Set navController as the window's root view controller
+        // Set the navigationBar's bar tint color
         let navController = UINavigationController()
+        navController.navigationBar.barTintColor = .secondaryBrandFillColor
         window?.rootViewController = navController
         // Create an instance of ItemsViewController
         // Create an instance of ItemStore

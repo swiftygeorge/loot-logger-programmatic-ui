@@ -8,17 +8,18 @@
 import UIKit
 
 class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
+    
+    // MARK: - Data stores
    
     var itemStore: ItemStore!
     var imageStore: ImageStore!
     var addButton: UIBarButtonItem!
     
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 65
-        configureNavBar()
+        setup()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,11 +58,13 @@ class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     
-    // MARK: - Methods
+    // MARK: - Detail view controller delegate methods
     
     func didFinishEditing(_ detailViewController: DetailViewController) {
         tableView.reloadData()
     }
+    
+    // MARK: - Actions
     
     @objc func addNewItem(_ sender: UIBarButtonItem) {
         itemStore.createItem()
@@ -70,16 +73,36 @@ class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
-    fileprivate func configureTableView() {
-        tableView = UITableView(frame: view.frame, style: .plain)
-        tableView.register(ItemCell.self, forCellReuseIdentifier: "ItemCell")
-        tableView.allowsMultipleSelection = false
-    }
+    // MARK: - Methods
     
     fileprivate func addView(_ view: UIView, toSuperView superView: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         superView.addSubview(view)
     }
+
+
+}
+
+// MARK: - Extension items view controller
+
+extension ItemsViewController {
+    
+    // MARK: View configuration
+    
+    fileprivate func setup() {
+        configureTableView()
+        configureNavBar()
+    }
+    
+    fileprivate func configureTableView() {
+        tableView = UITableView(frame: view.frame, style: .plain)
+        tableView.register(ItemCell.self, forCellReuseIdentifier: "ItemCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
+        tableView.allowsMultipleSelection = false
+        tableView.backgroundColor = .primaryBrandFillColor
+    }
+    
     
     fileprivate func configureNavBar() {
         navigationItem.leftBarButtonItem = editButtonItem
@@ -88,5 +111,5 @@ class ItemsViewController: UITableViewController, DetailViewControllerDelegate {
         navigationItem.rightBarButtonItem = addButton
     }
     
-
+    
 }

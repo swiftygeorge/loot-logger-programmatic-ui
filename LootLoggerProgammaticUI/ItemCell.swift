@@ -16,8 +16,10 @@ class ItemCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // MARK: - Configure the cell's suviews
+        // MARK: - Configure the cell's subviews
         
+        // content view
+        self.contentView.backgroundColor = .primaryBrandFillColor
         // nameLabel
         nameLabel.font = .preferredFont(forTextStyle: .body)
         nameLabel.adjustsFontForContentSizeCategory = true

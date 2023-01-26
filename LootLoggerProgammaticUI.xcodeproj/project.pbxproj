@@ -20,6 +20,7 @@
 		A69B318C297311850079A51D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B318B297311850079A51D /* ItemCell.swift */; };
 		A69B31902973BE040079A51D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B318F2973BE040079A51D /* DetailViewController.swift */; };
 		A69B31A62980DCF20079A51D /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B31A52980DCF20079A51D /* ImageStore.swift */; };
+		A69B31A82981F2610079A51D /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69B31A72981F2610079A51D /* Extension+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A69B318B297311850079A51D /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		A69B318F2973BE040079A51D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A69B31A52980DCF20079A51D /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		A69B31A72981F2610079A51D /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				A64DD36F296E386900757044 /* Item.swift */,
 				A64DD371296E3D0E00757044 /* ItemStore.swift */,
 				A69B31A52980DCF20079A51D /* ImageStore.swift */,
+				A69B31A72981F2610079A51D /* Extension+UIColor.swift */,
 				A64DD346296E356700757044 /* Assets.xcassets */,
 				A64DD348296E356700757044 /* LaunchScreen.storyboard */,
 				A64DD34B296E356700757044 /* Info.plist */,
@@ -271,6 +274,7 @@
 			files = (
 				A64DD370296E386900757044 /* Item.swift in Sources */,
 				A64DD33E296E356500757044 /* AppDelegate.swift in Sources */,
+				A69B31A82981F2610079A51D /* Extension+UIColor.swift in Sources */,
 				A69B318C297311850079A51D /* ItemCell.swift in Sources */,
 				A69B31A62980DCF20079A51D /* ImageStore.swift in Sources */,
 				A64DD36E296E37F100757044 /* ItemsViewController.swift in Sources */,

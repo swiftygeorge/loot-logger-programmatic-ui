@@ -13,6 +13,8 @@ protocol DetailViewControllerDelegate {
 
 class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    // MARK: - Data stores
+    
     var item: Item! {
         didSet {
             navigationItem.title = item.name
@@ -21,13 +23,24 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     var imageStore: ImageStore!
     var delegate: DetailViewControllerDelegate?
     
+    // MARK: View objects
+    
     var nameTextField = UITextField()
     var serialNumberTextField = UITextField()
     var valueTextField = UITextField()
     var dateCreatedLabel = UILabel()
     var imageView = UIImageView()
+    let nameLabel = UILabel()
+    let serialNumberLabel = UILabel()
+    let valueLabel = UILabel()
+    let nameStackView = UIStackView()
+    let serialNumberStackView = UIStackView()
+    let valueStackView = UIStackView()
+    let formStackView = UIStackView()
+    let adaptiveStackView = UIStackView()
     var toolbar = UIToolbar()
-    let mainStackView = UIStackView()
+    
+    // MARK: Formatters
     
     let numberFormatter: NumberFormatter = {
        let nf = NumberFormatter()
@@ -43,13 +56,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         return df
     }()
     
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
-        configureMainView()
-        configureDateLabel()
-        configureStacks()
-        configureTextFields()
-        configureImageView()
-        configureToolBar()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,11 +81,32 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         view.endEditing(true)
     }
     
+    // MARK: -  Adaptive interface (traitcollection) delegate methods
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        if newCollection.verticalSizeClass == .compact {
+            // Change the axis and distribution of the adaptive stack view to display the form stack
+            // view and the image side by side with equal width
+            adaptiveStackView.axis = .horizontal
+            adaptiveStackView.distribution = .fillEqually
+        } else {
+            // Change the axis and distribution of the adaptive stack view to display the form stack
+            // view above the image with distribution set to fill
+            adaptiveStackView.axis = .vertical
+            adaptiveStackView.distribution = .fill
+        }
+    }
+    
+    // MARK: - Text field delegate methods
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // TODO: - Find out why the keyboard is not dismissing
         textField.resignFirstResponder()
         return true
     }
+    
+    // MARK: - Image picker controller delegate methods
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // Get picked image from info dictionary
@@ -87,6 +118,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         // Take image picker off the screen - must call this dismiss method
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - Actions
     
     @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -118,6 +151,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         present(alertController, animated: true, completion: nil)
     }
     
+    // MARK: - Methods
+    
     fileprivate func imagePicker(for sourceType: UIImagePickerController.SourceType) -> UIImagePickerController {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = sourceType
@@ -128,94 +163,149 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
 }
 
-// MARK: - Extension DetailViewController Methods
+// MARK: - Extension detail view vontroller
 
 extension DetailViewController {
     
-    fileprivate func configureMainView() {
-        view.backgroundColor = .systemBackground
+    // MARK: Setup
+    
+    fileprivate func setup() {
+        configure(self.view)
+        configureLabels()
+        configureFormStack()
+        configureFormStacks()
+        configureImageView()
+        configureAdaptiveStack()
+        configureToolbar()
+        configureTextFields()
+    }
+    
+    // MARK: Configure main view
+    
+    fileprivate func configure(_ view: UIView) {
+        view.backgroundColor = .primaryBrandFillColor
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(backgroundTapped(_:))))
     }
     
-    fileprivate func configureDateLabel() {
-        dateCreatedLabel.text = "Date Created"
-        dateCreatedLabel.textAlignment = .center
-        dateCreatedLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
+    // MARK: Configure labels
+    
+    fileprivate func configureLabels() {
+        configure(dateCreatedLabel, withLabelText: "Date Created", andTextAlignment: .center, isLowPriority: true)
+        let labels = [nameLabel, serialNumberLabel, valueLabel]
+        let labelText = ["Name", "Serial", "Value"]
+        for index in 0 ..< labels.count {
+            configure(labels[index], withLabelText: labelText[index], andTextAlignment: .left)
+        }
     }
+    
+    // MARK: Configure text fields
     
     fileprivate func configureTextFields() {
-        nameTextField.delegate = self
-        valueTextField.delegate = self
-        serialNumberTextField.delegate = self
-    }
-    
-    fileprivate func configureStacks() {
-        // Labels
-        let nameLabel = UILabel()
-        let serialNumberLabel = UILabel()
-        let valueLabel = UILabel()
-        // Stack views
-        let nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField])
-        let serialNumberStackView = UIStackView(arrangedSubviews: [serialNumberLabel, serialNumberTextField])
-        let valueStackView = UIStackView(arrangedSubviews: [valueLabel, valueTextField])
-        // Configure stack views
-        configureStackView(nameStackView, forTextField: nameTextField, withLabel: nameLabel, andLabelText: "Name")
-        configureStackView(serialNumberStackView, forTextField: serialNumberTextField, withLabel: serialNumberLabel, andLabelText: "Serial")
-        configureStackView(valueStackView, forTextField: valueTextField, withLabel: valueLabel, andLabelText: "Value")
-        // Configure main stack view
-        mainStackView.axis = .vertical
-        mainStackView.spacing = 8
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        let views = [nameStackView, serialNumberStackView, valueStackView, dateCreatedLabel, imageView]
-        for view in views {
-            mainStackView.addArrangedSubview(view)
+        let textFields = [nameTextField, serialNumberTextField, valueTextField]
+        for textField in textFields {
+            configure(textField, withBorderStyle: .roundedRect)
         }
-        view.addSubview(mainStackView)
-        
-        // MARK: - Constraint subviews
-        
-        let margins = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            // TextFields
+            // TODO: - Find out why the text for nameLabel is getting trancated when the two layout constraints below are enabled
             serialNumberTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
-            valueTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor),
-            // verticalStackView
-            mainStackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
-            mainStackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+            valueTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor)
         ])
     }
     
+    // MARK: Configure stack views
+    
+    fileprivate func configureFormStacks() {
+        let labels = [nameLabel, serialNumberLabel, valueLabel]
+        let textFields = [nameTextField, serialNumberTextField, valueTextField]
+        let stackViews = [nameStackView, serialNumberStackView, valueStackView]
+        for index in 0 ..< labels.count {
+            configure(stackViews[index], withAxis: .horizontal, andSpacing: 8)
+            stackViews[index].insertArrangedSubview(labels[index], at: 0)
+            stackViews[index].insertArrangedSubview(textFields[index], at: 1)
+        }
+    }
+    
+    fileprivate func configureFormStack() {
+        configure(formStackView, withAxis: .vertical, andSpacing: 8)
+        let views = [nameStackView, serialNumberStackView, valueStackView, dateCreatedLabel]
+        for view in views {
+            formStackView.addArrangedSubview(view)
+        }
+    }
+    
+    fileprivate func configureAdaptiveStack() {
+        let axis: NSLayoutConstraint.Axis = UITraitCollection.current.horizontalSizeClass == .compact ? .vertical : .horizontal
+        let distribution: UIStackView.Distribution = UITraitCollection.current.horizontalSizeClass == .compact ? .fill : .fillEqually
+        configure(adaptiveStackView, withAxis: axis, withDistribution: distribution, andSpacing: 8)
+        let views = [formStackView, imageView]
+        for view in views {
+            adaptiveStackView.addArrangedSubview(view)
+        }
+        view.addSubview(adaptiveStackView)
+        let margins = view.layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            adaptiveStackView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 8),
+            adaptiveStackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            adaptiveStackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+        ])
+    }
+    
+    // MARK: Configure image view
+    
     fileprivate func configureImageView() {
-        imageView.contentMode = .scaleAspectFit
+        configure(imageView, withContentMode: .scaleAspectFit)
+    }
+    
+    // MARK: Configure tool bar
+    
+    fileprivate func configureToolbar() {
+        configure(toolbar)
+    }
+    
+    // MARK: View configuration methods
+    
+    fileprivate func configure(_ imageView: UIImageView, withContentMode contentMode: UIView.ContentMode) {
+        imageView.contentMode = contentMode
+        imageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.setContentHuggingPriority(UILayoutPriority(248), for: .vertical)
-        imageView.setContentCompressionResistancePriority(UILayoutPriority(749), for: .vertical)
     }
     
-    fileprivate func configureStackView(_ stackView: UIStackView, forTextField textField: UITextField, withLabel label: UILabel, andLabelText text: String) {
-        // Label
-        label.text = text
-        label.translatesAutoresizingMaskIntoConstraints = false
-        // TextField
-        textField.borderStyle = .roundedRect
-        textField.setContentHuggingPriority(UILayoutPriority(249), for: .horizontal)
-        textField.setContentCompressionResistancePriority(UILayoutPriority(749), for: .horizontal)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        // stackView
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-    }
-    
-    fileprivate func configureToolBar() {
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
+    fileprivate func configure(_ toolbar: UIToolbar) {
         toolbar.items = [UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(choosePhotoSource(_:)))]
+        toolbar.barTintColor = .secondaryBrandFillColor
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(toolbar)
-        // Set constraints
-        toolbar.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: -8).isActive = true
+        toolbar.topAnchor.constraint(equalTo: adaptiveStackView.bottomAnchor, constant: 8).isActive = true
         toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         toolbar.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+    }
+    
+    fileprivate func configure(_ label: UILabel, withLabelText text: String, andTextAlignment alignment: NSTextAlignment, isLowPriority: Bool = false) {
+        label.text = text
+        label.textAlignment = alignment
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        if isLowPriority {
+            label.setContentHuggingPriority(.defaultLow, for: .vertical)
+        }
+        label.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    fileprivate func configure(_ textField: UITextField, withBorderStyle borderStyle: UITextField.BorderStyle) {
+        textField.backgroundColor = .tertiarySystemFill
+        textField.borderStyle = borderStyle
+        textField.delegate = self
+        textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    fileprivate func configure(_ stackView: UIStackView, withAxis axis: NSLayoutConstraint.Axis, withDistribution distribution: UIStackView.Distribution = .fill, andSpacing spacing: CGFloat) {
+        stackView.axis = axis
+        stackView.distribution = distribution
+        stackView.spacing = spacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
